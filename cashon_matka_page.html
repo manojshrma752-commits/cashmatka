@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CashOn Matka — Game Rates</title>
+<style>
+  :root {
+    --green: #006b08;
+    --deep-green: #005600;
+    --yellow: #ffdf00;
+    --text-green: #174b20;
+    --muted: #777;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #171717;
+    background: #fff;
+  }
+  .hero {
+    min-height: 620px;
+    padding: 48px 20px 30px;
+    text-align: center;
+    color: #fff;
+    background: radial-gradient(ellipse at center, #08770b 0%, #006600 65%, #005500 100%);
+  }
+  .logo {
+    width: 138px;
+    height: 138px;
+    margin: 0 auto 29px;
+    display: grid;
+    place-items: center;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 28px rgba(255,255,255,.22);
+    color: #153e66;
+    overflow: hidden;
+  }
+  .logo-inner { line-height: 1.05; }
+  .coin { font-size: 44px; display: block; margin-bottom: 2px; }
+  .logo-name { font-size: 17px; font-weight: 800; letter-spacing: -.5px; }
+  .logo-sub { color: #9a7b00; font-size: 12px; margin-top: 2px; }
+  h1 {
+    margin: 0;
+    font-size: clamp(38px, 5.5vw, 58px);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -.8px;
+  }
+  .tagline {
+    margin: 17px 0 23px;
+    font-size: clamp(15px, 2.3vw, 23px);
+    font-weight: 800;
+    letter-spacing: 2.5px;
+  }
+  .intro {
+    max-width: 760px;
+    margin: 0 auto;
+    color: #e2eee2;
+    font-size: 18px;
+    line-height: 1.55;
+  }
+  .actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 36px 0 45px;
+  }
+  .btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    min-height: 49px;
+    padding: 0 25px;
+    border: 0;
+    border-radius: 9px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-download {
+    color: #fff;
+    background: #ffda00;
+    box-shadow: 0 0 0 8px rgba(255,221,0,.18);
+    text-shadow: 0 1px 1px rgba(0,0,0,.12);
+  }
+  .btn-whatsapp { background: #20ce69; }
+  .trust-bar {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 19px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 28px 42px;
+    border-radius: 50px;
+    background: rgba(0, 75, 0, .55);
+    color: #e9f3e9;
+    font-size: 16px;
+  }
+  .trust-item { white-space: nowrap; }
+  .trust-item strong { color: #fff; margin-right: 6px; font-size: 20px; }
+  .rates {
+    padding: 82px 20px 30px;
+    text-align: center;
+    background: #fff;
+  }
+  .rates h2 {
+    margin: 0;
+    color: var(--green);
+    font-size: clamp(29px, 4vw, 40px);
+    letter-spacing: 3px;
+    font-weight: 800;
+  }
+  .ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 17px auto 24px;
+    color: #f5d500;
+    font-size: 22px;
+  }
+  .ornament::before, .ornament::after {
+    content: "";
+    width: 58px;
+    height: 2px;
+    background: #f5d500;
+  }
+  .rates-subtitle {
+    margin: 0 auto 43px;
+    color: #858585;
+    font-size: 17px;
+  }
+  .table-wrap {
+    width: min(100%, 822px);
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 9px;
+    box-shadow: 0 14px 35px rgba(0,0,0,.11);
+    text-align: left;
+  }
+  table { width: 100%; border-collapse: collapse; }
+  thead { background: #006900; color: #fff; }
+  th {
+    padding: 20px 21px;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+  }
+  td {
+    padding: 19px 21px;
+    border-bottom: 1px solid #ededed;
+    font-size: 16px;
+  }
+  tbody tr:last-child td { border-bottom: 0; }
+  tbody tr:last-child { background: #fff5e5; }
+  td:first-child { color: var(--text-green); font-weight: 700; }
+  td:nth-child(2) { color: #686868; text-align: center; }
+  td:last-child { text-align: center; font-weight: 800; font-size: 18px; }
+  .game-icon { color: #f2d900; margin-right: 10px; }
+  .note {
+    width: min(100%, 920px);
+    margin: 42px auto 36px;
+    color: #888;
+    font-style: italic;
+    text-align: left;
+    font-size: 15px;
+  }
+  .start-wrap { max-width: 970px; margin: 0 auto; }
+  .start-btn {
+    width: 100%;
+    min-height: 52px;
+    background: #006800;
+    border: 6px solid #fff0a3;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+  }
+  .start-btn:hover { background: #005400; }
+  @media (max-width: 600px) {
+    .hero { min-height: auto; padding: 35px 17px 27px; }
+    .logo { width: 112px; height: 112px; margin-bottom: 25px; }
+    .coin { font-size: 36px; }
+    .tagline { letter-spacing: 1.4px; line-height: 1.5; }
+    .intro { font-size: 16px; }
+    .actions { margin: 30px 0 34px; gap: 17px; }
+    .btn { min-height: 48px; padding: 0 17px; font-size: 12px; }
+    .trust-bar { gap: 14px 20px; padding: 17px 10px; font-size: 13px; border-radius: 20px; }
+    .trust-item strong { font-size: 17px; }
+    .rates { padding: 54px 14px 24px; }
+    .rates-subtitle { font-size: 15px; margin-bottom: 30px; }
+    th { padding: 16px 11px; font-size: 12px; }
+    td { padding: 16px 10px; font-size: 13px; }
+    td:last-child { font-size: 14px; }
+    .game-icon { margin-right: 5px; }
+    .note { margin-top: 30px; font-size: 13px; line-height: 1.5; }
+    .start-btn { min-height: 48px; }
+  }
+</style>
+</head>
+<body>
+  <header class="hero">
+    <div class="logo" aria-label="CashOn Matka logo">
+      <div class="logo-inner">
+        <span class="coin">🪙</span>
+        <div class="logo-name">CashOn</div>
+        <div class="logo-sub">Matka</div>
+      </div>
+    </div>
+    <h1>CashOn Matka</h1>
+    <p class="tagline">THE ULTIMATE MATKA GAMING EXPERIENCE</p>
+    <p class="intro">Welcome to the most trusted and premium betting platform where strategy<br class="desktop-break"> meets fortune</p>
+    <div class="actions">
+      <a class="btn btn-download" href="#game-rates" aria-label="Download now">⬇ DOWNLOAD NOW</a>
+      <a class="btn btn-whatsapp" href="#contact" aria-label="WhatsApp">◉ WHATSAPP</a>
+    </div>
+    <div class="trust-bar">
+      <span class="trust-item"><strong>⬟</strong>100% Secure</span>
+      <span class="trust-item"><strong>ϟ</strong>Instant Results</span>
+      <span class="trust-item"><strong>₹</strong>Fast Payouts</span>
+    </div>
+  </header>
+
+  <main class="rates" id="game-rates">
+    <h2>GAME RATES</h2>
+    <div class="ornament" aria-hidden="true">♛</div>
+    <p class="rates-subtitle">Experience Premium Gaming with Competitive Rates</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>GAME TYPE</th><th>BET</th><th>WIN</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="game-icon">▪</span>Single Digit</td><td>₹10</td><td>₹100</td></tr>
+          <tr><td><span class="game-icon">▪</span>Jodi</td><td>₹10</td><td>₹1000</td></tr>
+          <tr><td><span class="game-icon">▦</span>Single Pana</td><td>₹10</td><td>₹1500</td></tr>
+          <tr><td><span class="game-icon">▦</span>Double Pana</td><td>₹10</td><td>₹3000</td></tr>
+          <tr><td><span class="game-icon">▦</span>Triple Pana</td><td>₹10</td><td>₹7000</td></tr>
+          <tr><td><span class="game-icon">▤</span>Half Sangam</td><td>₹10</td><td>₹10000</td></tr>
+          <tr><td><span class="game-icon">◆</span>Full Sangam</td><td>₹10</td><td>₹100000</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="note">Minimum bet amount starts from ₹10. Maximum winning amount may vary.</p>
+    <div class="start-wrap" id="contact">
+      <a class="btn start-btn" href="#game-rates">▶ &nbsp; START PLAYING NOW</a>
+    </div>
+  </main>
+</body>
+</html>
